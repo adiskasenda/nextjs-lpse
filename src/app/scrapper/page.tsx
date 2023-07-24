@@ -9,6 +9,7 @@ const getData  =async () => {
     const data = await prisma.project.findMany();
     return data
     // res.json({ result: data })
+    // console.log
 }
 
 const Dashboard = async()  => {
