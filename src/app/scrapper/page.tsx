@@ -1,18 +1,18 @@
 import React from 'react'
 import { PrismaClient } from '@prisma/client'
-import { NextApiRequest, NextApiResponse } from 'next';
+import { type NextApiRequest, type NextApiResponse } from 'next';
 import dayjs from 'dayjs';
 import DashboardLayout from '../dashboard/page';
 
 const prisma = new PrismaClient();
-const getData  =async (req: NextApiRequest, res: NextApiResponse) => {
+const getData  =async () => {
     const data = await prisma.project.findMany();
     return data
     // res.json({ result: data })
 }
 
-const Dashboard = async(req: NextApiRequest, res: NextApiResponse)  => {
-  const project = await getData(req, res);
+const Dashboard = async()  => {
+  const project = await getData();
 //   console.log(project);
   
   return (
